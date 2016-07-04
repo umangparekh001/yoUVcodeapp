@@ -1,0 +1,24 @@
+
+<div>
+    <h2><span translate="yoUVcodeApp.blogTags.detail.title">Blog Tags</span> {{vm.blogTags.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="yoUVcodeApp.blogTags.tags">Tags</span></dt>
+        <dd>
+            <span>{{vm.blogTags.tags}}</span>
+        </dd>
+        <dt><span translate="yoUVcodeApp.blogTags.blog_id">Blog Id</span></dt>
+        <dd>
+            <span ng-repeat="blog_id in vm.blogTags.blog_ids">
+                <a ui-sref="blog-detail({id: {{blog_id.id}}})">{{blog_id.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

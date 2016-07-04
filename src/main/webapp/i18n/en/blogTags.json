@@ -1,0 +1,23 @@
+{
+    "yoUVcodeApp": {
+        "blogTags" : {
+            "home": {
+                "title": "Blog Tags",
+                "createLabel": "Create a new Blog Tags",
+                "createOrEditLabel": "Create or edit a Blog Tags",
+                "search": "Search for Blog Tags"
+            },
+            "created": "A new Blog Tags is created with identifier {{ param }}",
+            "updated": "A Blog Tags is updated with identifier {{ param }}",
+            "deleted": "A Blog Tags is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Blog Tags {{ id }}?"
+            },
+            "detail": {
+                "title": "Blog Tags"
+            },
+            "tags": "Tags",
+            "blog_id": "Blog Id"
+        }
+    }
+}

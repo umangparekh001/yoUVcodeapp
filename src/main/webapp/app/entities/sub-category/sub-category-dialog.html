@@ -1,0 +1,124 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySubCategoryLabel" translate="yoUVcodeApp.subCategory.home.createOrEditLabel">Create or edit a Sub Category</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.subCategory.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.subCategory.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.subCategory.sub_category_title" for="field_sub_category_title">Sub Category Title</label>
+            <input type="text" class="form-control" name="sub_category_title" id="field_sub_category_title"
+                    ng-model="vm.subCategory.sub_category_title"
+                    required ng-maxlength="1000" />
+            <div ng-show="editForm.sub_category_title.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.sub_category_title.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.sub_category_title.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="1000">
+                    This field cannot be longer than 1000 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.subCategory.active_ind" for="field_active_ind">Active Ind</label>
+            <input type="checkbox" class="form-control" name="active_ind" id="field_active_ind"
+                    ng-model="vm.subCategory.active_ind"
+                     />
+            <div ng-show="editForm.active_ind.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.active_ind.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.subCategory.created_date" for="field_created_date">Created Date</label>
+                <div class="input-group">
+                    <input id="field_created_date" type="text" class="form-control" name="created_date" datetime-picker="{{dateformat}}" ng-model="vm.subCategory.created_date" is-open="vm.datePickerOpenStatus.created_date"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('created_date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.created_date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.created_date.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.created_date.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.subCategory.last_chng_date" for="field_last_chng_date">Last Chng Date</label>
+                <div class="input-group">
+                    <input id="field_last_chng_date" type="text" class="form-control" name="last_chng_date" datetime-picker="{{dateformat}}" ng-model="vm.subCategory.last_chng_date" is-open="vm.datePickerOpenStatus.last_chng_date"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('last_chng_date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.last_chng_date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.last_chng_date.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.last_chng_date.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="yoUVcodeApp.subCategory.category_id" for="field_category_id">Category Id</label>
+            <select class="form-control" id="field_category_id" name="category_id" ng-model="vm.subCategory.category_id" ng-options="category as category.id for category in vm.categories track by category.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="yoUVcodeApp.subCategory.created_by" for="field_created_by">Created By</label>
+            <select class="form-control" id="field_created_by" name="created_by" ng-model="vm.subCategory.created_by" ng-options="user as user.login for user in vm.users track by user.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.created_by.$invalid">
+            <p class="help-block"
+                ng-show="editForm.created_by.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="yoUVcodeApp.subCategory.last_chng_by" for="field_last_chng_by">Last Chng By</label>
+            <select class="form-control" id="field_last_chng_by" name="last_chng_by" ng-model="vm.subCategory.last_chng_by" ng-options="last_chng_by as last_chng_by.login for last_chng_by in vm.last_chng_bies track by last_chng_by.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.last_chng_by.$invalid">
+            <p class="help-block"
+                ng-show="editForm.last_chng_by.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+{
+    "yoUVcodeApp": {
+        "blog" : {
+            "home": {
+                "title": "Blogs",
+                "createLabel": "Create a new Blog",
+                "createOrEditLabel": "Create or edit a Blog",
+                "search": "Search for Blog"
+            },
+            "created": "A new Blog is created with identifier {{ param }}",
+            "updated": "A Blog is updated with identifier {{ param }}",
+            "deleted": "A Blog is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Blog {{ id }}?"
+            },
+            "detail": {
+                "title": "Blog"
+            },
+            "blogTitle": "Blog Title",
+            "description": "Description",
+            "hits": "Hits",
+            "blogUrl": "Blog Url",
+            "active_ind": "Active Ind",
+            "publishDate": "Publish Date",
+            "created_date": "Created Date",
+            "last_chng_date": "Last Chng Date",
+            "category_id": "Category Id",
+            "subCategory_id": "Sub Category Id",
+            "status_id": "Status Id",
+            "created_by": "Created By",
+            "last_chng_by": "Last Chng By"
+        }
+    }
+}

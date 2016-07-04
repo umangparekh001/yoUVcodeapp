@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="yoUVcodeApp.category.detail.title">Category</span> {{vm.category.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="yoUVcodeApp.category.category_title">Category Title</span></dt>
+        <dd>
+            <span>{{vm.category.category_title}}</span>
+        </dd>
+        <dt><span translate="yoUVcodeApp.category.active_ind">Active Ind</span></dt>
+        <dd>
+            <span>{{vm.category.active_ind}}</span>
+        </dd>
+        <dt><span translate="yoUVcodeApp.category.created_date">Created Date</span></dt>
+        <dd>
+            <span>{{vm.category.created_date | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="yoUVcodeApp.category.last_chng_date">Last Chng Date</span></dt>
+        <dd>
+            <span>{{vm.category.last_chng_date | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="yoUVcodeApp.category.changed_by">Changed By</span></dt>
+        <dd>
+            {{vm.category.changed_by.login}}
+        </dd>
+        <dt><span translate="yoUVcodeApp.category.last_chng_by">Last Chng By</span></dt>
+        <dd>
+            {{vm.category.last_chng_by.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

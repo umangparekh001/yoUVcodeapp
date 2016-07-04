@@ -1,0 +1,10 @@
+version: '2'
+services:
+    youvcode-elasticsearch:
+        container_name: youvcode-elasticsearch
+        image: elasticsearch:1.7.5
+        # volumes:
+        #     - ~/volumes/jhipster/yoUVcode/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9200:9200
+            - 9300:9300

@@ -1,0 +1,30 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "blog_id",
+            "otherEntityName": "blog",
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tags",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "4000"
+        }
+    ],
+    "changelogDate": "20160703000653",
+    "dto": "mapstruct",
+    "service": "no",
+    "entityTableName": "blog_tags",
+    "pagination": "pager"
+}

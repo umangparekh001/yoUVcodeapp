@@ -1,0 +1,201 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBlogLabel" translate="yoUVcodeApp.blog.home.createOrEditLabel">Create or edit a Blog</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.blog.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.blog.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.blog.blogTitle" for="field_blogTitle">Blog Title</label>
+            <input type="text" class="form-control" name="blogTitle" id="field_blogTitle"
+                    ng-model="vm.blog.blogTitle"
+                    required ng-maxlength="4000" />
+            <div ng-show="editForm.blogTitle.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.blogTitle.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.blogTitle.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="4000">
+                    This field cannot be longer than 4000 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.blog.description" for="field_description">Description</label>
+                <textarea class="form-control" name="description" id="field_description"
+                    ng-model="vm.blog.description" required max="30000" />
+            <div ng-show="editForm.description.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.description.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.description.$error.max" translate="entity.validation.max" translate-value-max="30000">
+                    This field cannot be more than 30000.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.blog.hits" for="field_hits">Hits</label>
+            <input type="number" class="form-control" name="hits" id="field_hits"
+                    ng-model="vm.blog.hits"
+                    required />
+            <div ng-show="editForm.hits.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.hits.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.hits.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.blog.blogUrl" for="field_blogUrl">Blog Url</label>
+            <input type="text" class="form-control" name="blogUrl" id="field_blogUrl"
+                    ng-model="vm.blog.blogUrl"
+                    required />
+            <div ng-show="editForm.blogUrl.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.blogUrl.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.blog.active_ind" for="field_active_ind">Active Ind</label>
+            <input type="checkbox" class="form-control" name="active_ind" id="field_active_ind"
+                    ng-model="vm.blog.active_ind"
+                     />
+            <div ng-show="editForm.active_ind.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.active_ind.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.blog.publishDate" for="field_publishDate">Publish Date</label>
+                <div class="input-group">
+                    <input id="field_publishDate" type="text" class="form-control" name="publishDate" datetime-picker="{{dateformat}}" ng-model="vm.blog.publishDate" is-open="vm.datePickerOpenStatus.publishDate"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('publishDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.blog.created_date" for="field_created_date">Created Date</label>
+                <div class="input-group">
+                    <input id="field_created_date" type="text" class="form-control" name="created_date" datetime-picker="{{dateformat}}" ng-model="vm.blog.created_date" is-open="vm.datePickerOpenStatus.created_date"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('created_date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.created_date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.created_date.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.created_date.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="yoUVcodeApp.blog.last_chng_date" for="field_last_chng_date">Last Chng Date</label>
+                <div class="input-group">
+                    <input id="field_last_chng_date" type="text" class="form-control" name="last_chng_date" datetime-picker="{{dateformat}}" ng-model="vm.blog.last_chng_date" is-open="vm.datePickerOpenStatus.last_chng_date"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('last_chng_date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.last_chng_date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.last_chng_date.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.last_chng_date.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="yoUVcodeApp.blog.category_id" for="field_category_id">Category Id</label>
+            <select class="form-control" id="field_category_id" name="category_id" ng-model="vm.blog.category_idId" ng-options="category.id as category.id for category in vm.categories"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.category_id.$invalid">
+            <p class="help-block"
+                ng-show="editForm.category_id.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="yoUVcodeApp.blog.subCategory_id" for="field_subCategory_id">Sub Category Id</label>
+            <select class="form-control" id="field_subCategory_id" name="subCategory_id" ng-model="vm.blog.subCategory_idId" ng-options="subcategory.id as subcategory.id for subcategory in vm.subcategories"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="yoUVcodeApp.blog.status_id" for="field_status_id">Status Id</label>
+            <select class="form-control" id="field_status_id" name="status_id" ng-model="vm.blog.status_idId" ng-options="blogStatus.id as blogStatus.id for blogStatus in vm.blogstatuses"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.status_id.$invalid">
+            <p class="help-block"
+                ng-show="editForm.status_id.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="yoUVcodeApp.blog.created_by" for="field_created_by">Created By</label>
+            <select class="form-control" id="field_created_by" name="created_by" ng-model="vm.blog.created_byId" ng-options="user.id as user.login for user in vm.users"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.created_by.$invalid">
+            <p class="help-block"
+                ng-show="editForm.created_by.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="yoUVcodeApp.blog.last_chng_by" for="field_last_chng_by">Last Chng By</label>
+            <select class="form-control" id="field_last_chng_by" name="last_chng_by" ng-model="vm.blog.last_chng_byId" ng-options="user.id as user.login for user in vm.users"             required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.last_chng_by.$invalid">
+            <p class="help-block"
+                ng-show="editForm.last_chng_by.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
